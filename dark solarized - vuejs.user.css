@@ -1,0 +1,98 @@
+/* ==UserStyle==
+@name         dark mode - vuejs
+@version        0.1.1
+@namespace      github.com/ADMadera/DarkMode
+@author         ADMadera
+@description  Dark mode for VueJS pages (only tested in Firefox)
+                todo: add options for code syntax color
+
+@preprocessor stylus
+@advanced checkbox compact-menu "Compact menu" 1
+@advanced checkbox dark-code "Darken code" 1
+@advanced color bg-prim "Primary Background Color" #333
+@advanced color bg-second "Secondary Background color" #000
+@advanced color fg-prim "Primary Foreground color" #fff
+@advanced color fg-second "Secondary Foreground color" #93b0b0
+@advanced color sb-header "Sidebar headers" #627486
+@advanced color sb-link-1 "Sidebar link color 1" #55748e
+@advanced color sb-link-2 "Sidebar link color 2" #ccc
+@advanced color sb-link-3 "Sidebar link color 3" #56738c
+==/UserStyle== */
+@-moz-document url-prefix("https://vuejs.org/"),
+url-prefix("https://cli.vuejs.org/"),
+url-prefix("https://vue-loader.vuejs.org/")
+
+  if compact-menu
+    .sidebar .sidebar-inner
+      padding-top: 5px
+
+    /* search box width */
+    #search-form input
+      width: 30px
+
+    #search-form:hover input,
+    #search-form input:focus
+      width: 160px
+
+  /* "solarize" code samples */
+  /*
+   Colors from https://github.com/alphapapa/solarized-everything-css/blob/master/css/solarized-dark/solarized-dark-stackexchange.com.css#L65
+   Didn't use all the colors cause it looks pretty good with the just the background changed
+  */
+  if dark-code
+    pre,
+    code
+      background-color: #073642 !important
+      color: #93a1a1 !important
+
+    pre *
+      background-color: inherit
+
+    code .hljs-attr
+      color: #859900 !important
+
+  /* dark mode stuff */
+  html,
+  body,
+  #header
+    background-color: bg-prim !important
+    color: fg-prim !important
+
+  em
+    color: fg-second
+
+  h1,
+  h2,
+  h3,
+  h4,
+  strong
+    color: sb-header
+
+  .navbar,
+  .navbar .links,
+  .sidebar
+    /* cli.vuejs.org sets the bg color for some reason */
+    background-color: bg-prim
+
+  .sidebar .sidebar-link
+    color: sb-link-2
+
+  .sidebar .section-link:not(.active),
+  .headerlink,
+  header .nav-link,
+  .dropdown-wrapper .dropdown-title,
+  #logo,
+  .site-name
+    /* .dropdown-wrapper .dropdown-title is used in the header of cli.vuejs.org */
+    color: sb-link-3 !important
+
+
+  #header
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.95)
+
+  .content p.tip
+    background-color: bg-second
+
+  /* special demo stuff... */
+  .demo li:not(:hover)
+    color: fg-prim

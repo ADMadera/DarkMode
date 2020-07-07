@@ -1,0 +1,221 @@
+/* ==UserStyle==
+@name           dark - Stylus Menu
+@version        0.1.1
+@namespace      github.com/ADMadera/DarkMode
+@author         ADMadera
+@description    Dark mode for the Stylus menu (only tested in Firefox)
+                Make sure `url-prefix(...)` is the correct value (copy-paste the url from the stylus "Manage" menu)
+                    todo: change color for all pop-ups, menus, etc
+
+@preprocessor stylus
+@advanced color bg-color "Background color" #333
+@advanced color fg-color "Forground color" #ddd
+@advanced color svg-fill "SVG Icon color" #ddd
+@advanced checkbox solarized-dark "Activate theme - Solarized dark" 0
+==/UserStyle== */
+@-moz-document url-prefix("moz-extension://replacethiswithmozextension")
+  body,
+  #stylus-popup,
+  #help-popup,
+  #message-box > div
+    background-color: bg-color
+    color: fg-color
+
+  a
+    color: fg-color
+
+  input[type="checkbox"]:not(.slider):hover
+    background-color: hsl(0, 12.5%, 3.1%)
+
+  svg
+    fill: svg-fill !important
+
+  svg:hover
+    box-shadow: inset 0 0 0 99999px rgba(255, 255, 255, 0.3)
+    fill: lighten(svg-fill, 20%) !important
+
+  select
+    background-color: bg-color
+    color: fg-color
+
+  /* optgroup can only be set to certain colors */
+  optgroup
+    background: #000
+
+  if solarized-dark /*
+        Change the code-block-highlighting to solarized dark
+        - solarized dark isn't available in the Theme selector
+        Works only when you have the default theme selected
+        - replaces default theme styles with solarized dark styles
+
+        Ripped from: https://codemirror.net/demo/theme.html#solarized%20dark
+        - modified to treat cm-s-default as cm-s-solarized.cm-s-dark and some other changes
+        - most comments below were in the original
+
+        Solarized theme for code-mirror
+        http://ethanschoonover.com/solarized
+        */
+    /* Color scheme for code-mirror */
+    .cm-s-default
+      color-profile: sRGB
+      rendering-intent: auto
+
+    .cm-s-default
+      color: #839496
+      background-color: #002b36
+
+    .cm-s-default .cm-header
+      color: #586e75
+
+    .cm-s-default .cm-quote
+      color: #93a1a1
+
+    .cm-s-default .cm-keyword
+      color: #cb4b16
+
+    .cm-s-default .cm-atom
+      color: #d33682
+
+    .cm-s-default .cm-number
+      color: #d33682
+
+    .cm-s-default .cm-def
+      color: #2aa198
+
+    .cm-s-default .cm-variable
+      color: #839496
+
+    .cm-s-default .cm-variable-2
+      color: #b58900
+
+    .cm-s-default .cm-variable-3,
+    .cm-s-default .cm-type
+      color: #6c71c4
+
+    .cm-s-default .cm-property
+      color: #2aa198
+
+    .cm-s-default .cm-operator
+      color: #6c71c4
+
+    .cm-s-default .cm-comment
+      color: #586e75
+      font-style: italic
+
+    .cm-s-default .cm-string
+      color: #859900
+
+    .cm-s-default .cm-string-2
+      color: #b58900
+
+    .cm-s-default .cm-meta
+      color: #859900
+
+    .cm-s-default .cm-qualifier
+      color: #b58900
+
+    .cm-s-default .cm-builtin
+      color: #d33682
+
+    .cm-s-default .cm-bracket
+      color: #cb4b16
+
+    .cm-s-default .CodeMirror-matchingbracket
+      color: #859900
+
+    .cm-s-default .CodeMirror-nonmatchingbracket
+      color: #dc322f
+
+    .cm-s-default .cm-tag
+      color: #93a1a1
+
+    .cm-s-default .cm-attribute
+      color: #2aa198
+
+    .cm-s-default .cm-hr
+      color: transparent
+      border-top: 1px solid #586e75
+      display: block
+
+    .cm-s-default .cm-link
+      color: #93a1a1
+      cursor: pointer
+
+    .cm-s-default .cm-special
+      color: #6c71c4
+
+    .cm-s-default .cm-em
+      color: #999
+      text-decoration: underline
+      text-decoration-style: dotted
+
+    .cm-s-default .cm-error,
+    .cm-s-default .cm-invalidchar
+      color: #586e75
+      border-bottom: 1px dotted #dc322f
+
+    .cm-s-default div.CodeMirror-selected
+      background: #073642
+
+    /* seleciton color changed from original */
+    .cm-s-default .CodeMirror ::selection
+      background: rgba(100, 122, 131, 0.99)
+
+    .cm-s-default .CodeMirror-line::-moz-selection,
+    .CodeMirror-line > span::-moz-selection,
+    .CodeMirror-line > span > span::-moz-selection
+      background: rgba(100, 122, 131, 0.99)
+
+    /* Editor styling */
+    /* Little shadow on the view-port of the buffer view */
+    .cm-s-default .CodeMirror
+      -moz-box-shadow: inset 7px 0 12px -6px #000
+      -webkit-box-shadow: inset 7px 0 12px -6px #000
+      box-shadow: inset 7px 0 12px -6px #000
+
+    /* Remove gutter border */
+    .cm-s-default .CodeMirror-gutters
+      border-right: 0
+
+    /* Gutter colors and line number styling based of color scheme (dark / light) */
+    /* Dark */
+    .cm-s-default .CodeMirror-gutters
+      background-color: #073642
+
+    .cm-s-default .CodeMirror-linenumber
+      color: #586e75
+      text-shadow: #021014 0 -1px
+
+    /* Common */
+    .cm-s-default .CodeMirror-linenumber
+      padding: 0 5px
+
+    .cm-s-default .CodeMirror-guttermarker-subtle
+      color: #586e75
+
+    .cm-s-default .CodeMirror-guttermarker
+      color: #ddd
+
+    .cm-s-default .cm-s-light .CodeMirror-guttermarker
+      color: #cb4b16
+
+    .cm-s-default .CodeMirror-gutter .CodeMirror-gutter-text
+      color: #586e75
+
+    /* Cursor */
+    .cm-s-default .CodeMirror-cursor
+      border-left: 1px solid #819090
+
+    /* Fat cursor */
+    .cm-s-default .cm-fat-cursor .CodeMirror-cursor
+      background: #586e75
+
+    .cm-s-default .cm-animate-fat-cursor
+      background-color: #586e75
+
+    /* Active line */
+    .cm-s-default .CodeMirror-activeline-background
+      background: rgba(255, 255, 255, 0.06)
+
+/* end code mirror stuff */
+    

@@ -1,0 +1,169 @@
+/* ==UserStyle==
+@name           dark - google
+@version        0.1.1
+@namespace      github.com/ADMadera/DarkMode
+@author         ADMadera
+@description    Dark mode for google Search + some options for gmail (only tested in Firefox)
+                Gmail options: show timestamp on hover & make the loading screen dark
+                    todo: test/fix on Images, Shopping, News, Maps, etc
+                    todo: configurable colors?
+
+@preprocessor stylus
+@advanced checkbox timestamp-enable "Gmail-show timestamp on hover" 1
+@advanced checkbox dark-load "Gmail-make loading screen dark" 1
+@advanced color bg-color "Base color scheme" #333
+==/UserStyle== */
+
+@-moz-document url-prefix("https://mail.google.com/mail/")
+  if timestamp-enable
+    .zA.aqw > .xW,
+    .zA.buL > .xW,
+    .zA.buL > .yf,
+    .zA.cP > .xW,
+    .zA.cP > .yf
+      display: flex !important
+
+    .zA.aqw > .xY.byZ
+      padding-right: 0
+
+  if dark-load
+    #loading
+      background-color: black
+
+@-moz-document url-prefix("https://www.google.com/")
+  /* width auto stuff */
+  #cnt,
+  /* min-width833px */
+  #top_nav,
+  /*min-width: 1173*/
+  #searchform,
+  #fbar,
+  #appbar,
+  .rhscol
+    min-width: auto !important
+
+  /* width - move "Sign In" to the left */
+  #gb
+    float: left
+    top: 40px
+    padding-left: 0
+
+  .gb_2c.gb_Xa.gb_1c
+    padding-left: 0
+    padding-right: 0
+
+  .gb_3c + div
+    right: unset
+    left: 0px
+
+  /* actual dark mode */
+  html *:not(a),
+  .GHDvEf,
+  .GHDvEf:hover,
+  .GHDvEf.selected,
+  .GHDvEf.selected:hover
+    background-color: bg-color !important
+
+  body,
+  .webanswers-webanswers_table__webanswers-table table tbody th,
+  .obcontainer.card-section select,
+  .obcontainer.card-section input
+    color: #fff
+
+  a.fl:link,
+  .fl a,
+  .flt,
+  a.flt,
+  .gl a:link,
+  a.mblink,
+  .mblink b
+    color: #8BC34A !important
+
+  /* secondary stuff */
+  .f,
+  .f a:link,
+  .m,
+  .P1usbc,
+  .TXwUJf,
+  .ab_tnav_wrp,
+  #resultStats,
+  .Od5Jsd
+    color: #86b8d0 !important
+
+  .s
+    color: #4caf50 !important
+
+  .gLFyf,
+  .sbl1,
+  .gb_r
+    color: #fff !important
+
+  /* color for result "breadcrumb" */
+  .eipWBe,
+  /* color for result stats */
+  #result-stats
+    color: #9da1a6 !important
+
+  /* color used in "answer blurbs" */
+  .e24Kjd,
+  /* domain name for videos */
+  .cJzOGc
+    color: #fff !important
+
+  .Z0LcW.AZCkJd
+    color: #ddd
+
+  /* un-clicked links */
+  a:link,
+  .w,
+  #prs a:visited,
+  #prs a:active,
+  .q:active,
+  .q:visited,
+  .kl:active,
+  .tbotu,
+  .a,
+  cite,
+  cite a:link,
+  cite a:visited,
+  .cite,
+  .cite:link,
+  #nygTcd > i,
+  .bc a:link
+    color: #00bcd4 !important
+
+  /* clicked links */
+  .mblink:visited,
+  a:visited
+    color: #ab4ed9 !important
+
+  .s .st em,
+  .st.s.std em,
+  .hdtb-mn-hd,
+  .hdtb-mn-hd,
+  #hdtb .hdtb-mitem a,
+  #brs .med,
+  a.hdtb-tl
+    color: #d5d55f !important
+
+  /* search bar & "People also ask" styling */
+  .RNNXgb,
+  .RNNXgb *,
+  .g.kno-kp.mnr-c.g-blk,
+  .g.kno-kp.mnr-c.g-blk *
+    background-color: transparent !important
+
+  .feCgPc.y.yf,
+  .JolIg
+    color: #8bc34a !important
+
+  /* search bar - auto-complete */
+  .UUbT9.S3nFnd
+    background-color: transparent !important
+
+  /* search bar - tools button */
+  .hdtb-tl:hover,
+  .hdtb-tl.hdtb-tl-sel,
+  .hdtb-tl.hdtb-tl-sel:hover
+    color: #333 !important
+
