@@ -1,46 +1,87 @@
 /* ==UserStyle==
 @name           dark - Stylus Menu
-@version        0.1.1
+@version        0.1.2
 @namespace      github.com/ADMadera/DarkMode
 @author         ADMadera
 @description    Dark mode for the Stylus menu (only tested in Firefox)
-                Make sure `url-prefix(...)` is the correct value (copy-paste the url from the stylus "Manage" menu)
-                    todo: change color for all pop-ups, menus, etc
+                Make sure `url-prefix(...)` is the correct value
+                    (copy-paste the url from the stylus "Manage" menu)
+                Todo: change color for all pop-ups, menus, etc
 
 @preprocessor stylus
 @advanced color bg-color "Background color" #333
-@advanced color fg-color "Forground color" #ddd
+@advanced color fg-color "Foreground color" #ddd
 @advanced color svg-fill "SVG Icon color" #ddd
 @advanced checkbox solarized-dark "Activate theme - Solarized dark" 0
 ==/UserStyle== */
 @-moz-document url-prefix("moz-extension://replacethiswithmozextension")
-  body,
-  #stylus-popup,
-  #help-popup,
+  svg-fill-disabled = darken(svg-fill, 20%)
+
+  body
+  #stylus-popup
+  #help-popup
   #message-box > div
+  #hotkey-info div
+  #confirm > div
+  #options
     background-color: bg-color
     color: fg-color
+
+  #options-title
+  #message-box-title
+    background-color: #00352C
+
+  #hotkey-info[data-active]
+    border-left: 0
+
+  .style-name:hover input[type="checkbox"]:checked
+  .menu-items-wrapper
+  #message-box-buttons
+    background-color: bg-color
+
+  #message-box-buttons
+    border-top: 1px solid fg-color
 
   a
     color: fg-color
 
+  /* svg icon/checkbox nonsense */
   input[type="checkbox"]:not(.slider):hover
-    background-color: hsl(0, 12.5%, 3.1%)
+  #stylus-popup input[type="checkbox"]:hover
+  #help-popup input[type="checkbox"]:hover
+    background-color: hsl(0, 12.5%, 3.1%) !important
 
   svg
+  .svg-icon
     fill: svg-fill !important
 
-  svg:hover
-    box-shadow: inset 0 0 0 99999px rgba(255, 255, 255, 0.3)
-    fill: lighten(svg-fill, 20%) !important
+  .svg-icon
+  .svg-icon.checked
+  .svg-icon.select-arrow
+  a:hover .svg-icon
+    fill: svg-fill
+
+  input[type="checkbox"]:not(.slider):disabled + .svg-icon.checked
+    fill: svg-fill-disabled
+
+
+  input[type="checkbox"]:not(.slider):disabled + .svg-icon.checked + span
+    color: svg-fill-disabled
+
+  #installed.disabled + .actions #disableAll:checked + .svg-icon.checked
+    fill: hsl(0, 68%, 42%)
+
+  #installed.disabled + .actions #disableAll:checked:hover + .svg-icon.checked
+    fill: svg-fill-disabled
+  /* end of svg icon/checkbox nonsense */
 
   select
     background-color: bg-color
     color: fg-color
 
-  /* optgroup can only be set to certain colors */
+  /* optgroup can't be set to #333333... for some reason? */
   optgroup
-    background: #000
+    background: #333334
 
   if solarized-dark /*
         Change the code-block-highlighting to solarized dark
