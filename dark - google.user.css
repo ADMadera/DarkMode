@@ -5,13 +5,13 @@
 @author         ADMadera
 @description    Dark mode for google Search + some options for gmail (only tested in Firefox)
                 Gmail options: show timestamp on hover & make the loading screen dark
+                    todo: rename to .user.styl (https://github.com/openstyles/stylus#highlights)
                     todo: test/fix on Images, Shopping, News, Maps, etc
                     todo: configurable colors?
 
 @preprocessor stylus
 @advanced checkbox timestamp-enable "Gmail-show timestamp on hover" 1
 @advanced checkbox dark-load "Gmail-make loading screen dark" 1
-@advanced color bg-color "Base color scheme" #333
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://mail.google.com/mail/")
@@ -30,12 +30,10 @@
     #loading
       background-color: black
 
-@-moz-document url-prefix("https://www.google.com/")
+@-moz-document regexp("https://www.google.com/(?!maps|flights|search.*?&tbm=fin).*$")
   /* width auto stuff */
   #cnt,
-  /* min-width833px */
   #top_nav,
-  /*min-width: 1173*/
   #searchform,
   #fbar,
   #appbar,
@@ -52,9 +50,13 @@
     padding-left: 0
     padding-right: 0
 
-  .gb_3c + div
+  .gb_4c + div
     right: unset
     left: 0px
+  // make the background invisible so that it doesnt obscure the searchbox
+  .gb_3c
+  .gb_4c
+    background-color: transparent !important
 
   /* actual dark mode */
   html *:not(a),
@@ -62,7 +64,7 @@
   .GHDvEf:hover,
   .GHDvEf.selected,
   .GHDvEf.selected:hover
-    background-color: bg-color !important
+    background-color: #333 !important
 
   body,
   .webanswers-webanswers_table__webanswers-table table tbody th,
@@ -137,6 +139,10 @@
   a:visited
     color: #ab4ed9 !important
 
+  // color for current page number (at bottom of search page)
+  #foot .AaVjTc .YyVfkd
+    color: #00bcd4
+
   .s .st em,
   .st.s.std em,
   .hdtb-mn-hd,
@@ -158,7 +164,11 @@
     color: #8bc34a !important
 
   /* search bar - auto-complete */
+  .sbhl
+    background-color: black !important
+
   .UUbT9.S3nFnd
+  .sbhl *
     background-color: transparent !important
 
   /* search bar - tools button */
