@@ -1,0 +1,269 @@
+/* ==UserStyle==
+@name           dark mode - jetbrains sites
+@version        0.1.0
+@namespace      github.com/ADMadera/DarkMode
+@author         ADMadera
+@description    Dark mode for jetbrains help and blog pages
+
+@preprocessor stylus
+@advanced select syntax-choice "Code syntax theme" {
+  "None": "none",
+  "Solarized Dark": "solDark",
+  "Shadowfox": "shadowfox",
+  "Code Mirror Default": "cmDefault"
+}
+==/UserStyle== */
+
+@-moz-document url-prefix("https://youtrack.jetbrains.com/issue/")
+  body:not(.global_issue-full-view )
+    background-color: #23272b;
+
+
+@-moz-document url-prefix("https://www.jetbrains.com/help/"),
+url-prefix("https://blog.jetbrains.com/")
+  /* make compact*/
+  .app__header
+    height: 3em
+
+  .article h1
+    margin-top: 15px
+
+  .article h2
+    margin-top: 10px
+
+  /* dark mode */
+  body,
+  body.custom-background,
+  #wrapper,
+  #content,
+  .header,
+  .app__footer
+    background-color: #333
+    color: #ddd
+
+  .procedure-steps
+    border-color: white !important
+
+  .dropdown__trigger,
+  .article,
+  .article h1,
+  .article h2,
+  .article h3,
+  .article h4,
+  .toc-item:not(:hover),
+  table,
+  thead,
+  #content .entry-title,
+  .entry-title a:link,
+  .entry-title a:visited,
+  #content h1,
+  #content h2,
+  #content h3,
+  #content h4,
+  #content h5,
+  #content h6
+    color: #ddd
+
+  .dropdown__trigger:hover,
+  .wt-button_mode_nude:hover,
+  .entry-title a:active,
+  .entry-title a:hover
+    color: #ccc
+
+  kbd,
+  .kbd
+    color: #555
+
+  .notification,
+  .prompt__wrapper,
+  .last-modified,
+  .wt-button_mode_nude,
+  .see-also__title,
+  .see-also__column-title,
+  .link,
+  .navigation-links__prev,
+  .navigation-links__next,
+  .footer__copyright
+    color: #fff
+
+  .link--external::after
+    /* "Contact Us" arrow */
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2327282c'%3E%3Cpath d='M14 2H5.75l3.595 3.595L2.22 12.72l1.06 1.06 7.125-7.125L14 10.25V2z' fill='%23fff' /%3E%3C/svg%3E") no-repeat 50% / 100%
+
+  /* syntax-choice
+  Nearly all css you see here was ripped by hand from the code mirror theme
+  demo site. Those themes appear to be sourced from other places. included
+  links to the original locations where I could. find them.
+
+  https://codemirror.net/demo/theme.html#default
+  */
+  if syntax-choice == "none"
+    pre
+    code
+      color: white !important
+  else if syntax-choice == "solDark"
+    /* solarized dark mostly from code http://ethanschoonover.com/solarized */
+    pre
+    code
+      color: #839496 !important
+      background-color: #002b36 !important
+    pre code .header
+      color: #586e75 !important
+    pre code .quote
+      color: #93a1a1 !important
+    pre code .keyword
+      color: #cb4b16 !important
+    pre code .atom
+      color: #d33682 !important
+    pre code .number
+      color: #d33682 !important
+    pre code .def
+      color: #2aa198 !important
+    pre code .variable
+      color: #839496 !important
+    pre code .variable-2
+      color: #b58900 !important
+    pre code .variable-3
+    pre code .type
+      color: #6c71c4 !important
+    pre code .property
+      color: #2aa198 !important
+    pre code .operator
+      color: #6c71c4 !important
+    pre code .comment
+      color: #586e75 !important
+      font-style: italic !important
+    pre code .string
+      color: #859900 !important
+    pre code .string-2
+      color: #b58900 !important
+    pre code .meta
+      color: #859900 !important
+    pre code .qualifier
+      color: #b58900 !important
+    pre code .builtin
+      color: #d33682 !important
+    pre code .bracket
+      color: #cb4b16 !important
+    pre code .tag
+      color: #93a1a1 !important
+    pre code .attribute
+      color: #2aa198 !important
+    pre code .link
+      color: #93a1a1 !important
+      cursor: pointer !important
+    pre code .special
+      color: #6c71c4 !important
+    pre code .em
+      color: #999 !important
+      text-decoration: underline !important
+      text-decoration-style: dotted !important
+    pre code .error
+    pre code .invalidchar
+      color: #586e75 !important
+      border-bottom: 1px dotted #dc322f !important
+    pre code > span::-moz-selection
+      background: rgba(7, 54, 66, 0.99)
+    pre code > span::selection
+      background: rgba(7, 54, 66, 0.99)
+  else if syntax-choice == "shadowfox"
+    /* mostly from here: http://github.com/overdodactyl */
+    pre
+    code
+      background: #2a2a2e !important
+      color: #b1b1b3 !important
+    pre code .comment
+      color: #939393 !important
+    pre code .atom
+      color: #FF7DE9 !important
+    pre code .quote
+      color: #FF7DE9 !important
+    pre code .builtin
+      color: #FF7DE9 !important
+    pre code .attribute
+      color: #FF7DE9 !important
+    pre code .keyword
+      color: #FF7DE9 !important
+    pre code .error
+      color: #FF7DE9 !important
+    pre code .number
+      color: #6B89FF !important
+    pre code .string
+      color: #6B89FF !important
+    pre code .string-2
+      color: #6B89FF !important
+    pre code .meta
+      color: #939393 !important
+    pre code .hr
+      color: #939393 !important
+    pre code .header
+      color: #75BFFF !important
+    pre code .qualifier
+      color: #75BFFF !important
+    pre code .variable-2
+      color: #75BFFF !important
+    pre code .property
+      color: #86DE74 !important
+    pre code .def
+      color: #75BFFF !important
+    pre code .bracket
+      color: #75BFFF !important
+    pre code .tag
+      color: #75BFFF !important
+    pre code .link:visited
+      color: #75BFFF !important
+    pre code .variable
+      color: #B98EFF !important
+    pre code .variable-3
+      color: #d7d7db !important
+    pre code .link
+      color: #737373 !important
+    pre code .operator
+      color: #b1b1b3 !important
+    pre code .special
+      color: #d7d7db !important
+  else if syntax-choice == "cmDefault"
+    /* mostly from codemirror default */
+    pre, code
+      background: white !important
+      color: black !important
+    pre code .keyword
+      color: #708 !important
+    pre code .atom
+      color: #219 !important
+    pre code .number
+      color: #164 !important
+    pre code .def
+      color: #00f !important
+    pre code .variable,
+    pre code .punctuation,
+    pre code .property,
+    pre code .operator
+      color: #000 !important
+    pre code .variable-2
+      color: #05a !important
+    pre code .variable-3
+    pre code .type
+      color: #085 !important
+    pre code .comment
+      color: #a50 !important
+    pre code .string
+      color: #a11 !important
+    pre code .string-2
+      color: #f50 !important
+    pre code .meta
+      color: #555 !important
+    pre code .qualifier
+      color: #555 !important
+    pre code .builtin
+      color: #30a !important
+    pre code .bracket
+      color: #997 !important
+    pre code .tag
+      color: #170 !important
+    pre code .attribute
+      color: #00c !important
+    pre code .hr
+      color: #999 !important
+    pre code .link
+      color: #00c !important
