@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         dark - vuejs
-@version        0.1.1
+@version        0.2.0
 @namespace      github.com/ADMadera/DarkMode
 @author         ADMadera
 @description  Dark mode for VueJS pages (only tested in Firefox)
@@ -20,9 +20,13 @@
 ==/UserStyle== */
 @-moz-document url-prefix("https://vuejs.org/"),
 url-prefix("https://cli.vuejs.org/"),
-url-prefix("https://vue-loader.vuejs.org/")
+url-prefix("https://vue-loader.vuejs.org/"),
+url-prefix("https://vuex.vuejs.org/")
 
   if compact-menu
+    .content.with-sidebar
+      margin-left: 210px
+
     .sidebar .sidebar-inner
       padding-top: 5px
 
@@ -91,7 +95,12 @@ url-prefix("https://vue-loader.vuejs.org/")
     box-shadow: 0 0 1px rgba(255, 255, 255, 0.95)
 
   .content p.tip
+  .custom-block.tip
     background-color: bg-second
+    color: fg-second
+
+  .custom-block.warning
+    color: fg-second
 
   /* special demo stuff... */
   .demo li:not(:hover)
