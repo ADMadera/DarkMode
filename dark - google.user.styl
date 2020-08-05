@@ -30,6 +30,9 @@
       background-color: black
 
 @-moz-document regexp("https://www.google.com/(?!maps|flights|search.*?&tbm=fin).*$")
+  // search-blue is the blue from the magnifying glass in the search text box
+  search-blue = #4285f4
+
   /* width auto stuff */
   #cnt,
   #top_nav,
@@ -38,6 +41,10 @@
   #appbar,
   .rhscol
     min-width: auto !important
+
+  // usesless(?) element that seems to just contain an obnoxiously wide g-img(???) tag
+  #easter-egg
+    display: none !important
 
   /* width - move "Sign In" to the left */
   #gb
@@ -133,6 +140,10 @@
   .bc a:link
     color: #00bcd4 !important
 
+  // action-menu down arrow==cache arrow?
+  .action-menu .mn-dwn-arw
+    border-color: search-blue transparent
+
   /* clicked links */
   .mblink:visited,
   a:visited
@@ -162,6 +173,8 @@
   .JolIg
     color: #8bc34a !important
 
+  #hdtbSum
+    background: transparent
   /* search bar - auto-complete */
   .sbhl
     background-color: black !important
