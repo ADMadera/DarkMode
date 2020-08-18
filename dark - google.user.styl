@@ -71,19 +71,43 @@ if dark-load
 
   if enhanced-dark
     .iY .Bu
-    .iY .Bu *
+    .iY .Bu *:not(img):not(a)
       background: #333 !important;
       color: #fff;
     // i can't convince stylus that the rgb "call" is just a string without @css. it IS just a string.
     @css{
+      /* indeed */
+      [style*="color: rgb(42, 34, 38)"],
       span[style*="color:black"],
       p[style*='color: rgb(0, 0, 0)'] {
         color: #fff !important
       }
     }
+    // change icon colors
+    // star img
     .bi4 > .T-KT:not(.T-KT-Jp):not(.byM)::before
-      background: url('https://www.gstatic.com/images/icons/material/system/1x/star_border_white_20dp.png')
-
+      background: url('https://www.gstatic.com/images/icons/material/system/1x/star_border_white_20dp.png') !important
+    // reply img
+    .hB
+    .mL
+    .ams.bkH::before
+      background-image: url('https://www.gstatic.com/images/icons/material/system/1x/reply_white_20dp.png') !important
+    // dots
+    .hA
+      background-image: url('https://www.gstatic.com/images/icons/material/system/1x/more_vert_white_20dp.png') !important
+    // forward arrow img
+    .mI
+    .ams.bkG::before
+      background-image: url('https://www.gstatic.com/images/icons/material/system/1x/forward_white_20dp.png');
+    // printer img
+    .g1
+      background-image: url('https://www.gstatic.com/images/icons/material/system/1x/print_white_20dp.png');
+    // open in new img
+    .gZ
+      background-image: url('https://www.gstatic.com/images/icons/material/system/1x/open_in_new_white_20dp.png');
+    // images are not displayed img
+    .aeu
+      background-color: white
     table td
       border-color: #fff !important
 
