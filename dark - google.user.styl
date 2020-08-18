@@ -13,6 +13,45 @@
 @advanced checkbox dark-load "Gmail-make loading screen dark" 1
 ==/UserStyle== */
 
+
+if dark-load
+  @-moz-document url-prefix("https://accounts.google.com/signin/"), url-prefix("https://accounts.google.com/ServiceLogin"), url-prefix("https://accounts.google.com/AccountChooser")
+    .VmOpGe
+      display: none
+    body
+      background-color: #333 !important
+  .RAYh1e
+  .VmOpGe
+  .N3Hzgf .snByac
+  .ze9ebf.u3bW4e .snByac.snByac
+  .ze9ebf.CDELXb .snByac.snByac
+  .YZrg6
+      background-color: #333
+
+  .u7land .B9IrJb.KKjvXb
+  .jXeDnc h1
+  .Y4dIwd
+  .N3Hzgf .zHQkBf
+  .ze9ebf .zHQkBf
+  .YZrg6
+    color: #fff
+
+  .N3Hzgf .snByac // "email or phone"/password but only while it acts as a placeholder and not as a label
+    color: #767676
+
+  .Bgzgmd a
+  .vwtvsf
+    color: #ddd
+
+  // svg "fill"
+  .wRNPwe
+  .krLnGe
+    color: #aaa
+
+  .ANuIbb
+    background-color: #282828;
+
+
 @-moz-document url-prefix("https://mail.google.com/mail/")
   if timestamp-enable
     .zA.aqw > .xW,
@@ -188,37 +227,3 @@
   .hdtb-tl.hdtb-tl-sel,
   .hdtb-tl.hdtb-tl-sel:hover
     color: #333 !important
-
-@-moz-document url-prefix("https://accounts.google.com/signin/")
-  .RAYh1e
-  .VmOpGe
-  .N3Hzgf .snByac
-  .ze9ebf.u3bW4e .snByac.snByac
-  .ze9ebf.CDELXb .snByac.snByac
-  .YZrg6
-    background-color: #333;
-
-  .u7land .B9IrJb.KKjvXb
-  .jXeDnc h1
-  .Y4dIwd
-  .N3Hzgf .zHQkBf
-  .ze9ebf .zHQkBf
-  .YZrg6
-    color: #fff
-
-  .N3Hzgf .snByac
-  .Bgzgmd a
-  .vwtvsf
-    color: #ddd
-
-  // svg "fill"
-  .wRNPwe
-  .krLnGe
-    color: #aaa
-
-  .ANuIbb
-    background-color: #282828;
-
-
-
-
