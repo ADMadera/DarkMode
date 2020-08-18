@@ -11,6 +11,7 @@
 @preprocessor stylus
 @advanced checkbox timestamp-enable "Gmail-show timestamp on hover" 1
 @advanced checkbox dark-load "Gmail-make loading screen dark" 1
+@advanced checkbox enhanced-dark "Gmail-make email bodies dark" 1
 ==/UserStyle== */
 
 
@@ -66,7 +67,25 @@ if dark-load
 
   if dark-load
     #loading
-      background-color: black
+      background-color: #333
+
+  if enhanced-dark
+    .iY .Bu
+    .iY .Bu *
+      background: #333 !important;
+      color: #fff;
+    // i can't convince stylus that the rgb "call" is just a string without @css. it IS just a string.
+    @css{
+      span[style*="color:black"],
+      p[style*='color: rgb(0, 0, 0)'] {
+        color: #fff !important
+      }
+    }
+    .bi4 > .T-KT:not(.T-KT-Jp):not(.byM)::before
+      background: url('https://www.gstatic.com/images/icons/material/system/1x/star_border_white_20dp.png')
+
+    table td
+      border-color: #fff !important
 
 @-moz-document regexp("https://www.google.com/(?!maps|flights|search.*?&tbm=fin).*$")
   // search-blue is the blue from the magnifying glass in the search text box
