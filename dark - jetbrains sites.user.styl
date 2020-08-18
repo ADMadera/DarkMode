@@ -15,10 +15,6 @@
 }
 ==/UserStyle== */
 
-@-moz-document url-prefix("https://youtrack.jetbrains.com/issue/")
-  body:not(.global_issue-full-view )
-    background-color: #23272b;
-
 
 @-moz-document url-prefix("https://www.jetbrains.com/help/"),
 url-prefix("https://blog.jetbrains.com/")
@@ -106,6 +102,7 @@ url-prefix("https://blog.jetbrains.com/")
     /* solarized dark mostly from code http://ethanschoonover.com/solarized */
     pre
     code
+    .filepath
       color: #839496 !important
       background-color: #002b36 !important
     pre code .header
@@ -268,3 +265,77 @@ url-prefix("https://blog.jetbrains.com/")
       color: #999 !important
     pre code .link
       color: #00c !important
+
+
+@-moz-document url-prefix("https://youtrack.jetbrains.com/issue/")
+  body:not(.global_issue-full-view )
+    background-color: #23272b;
+
+  :root
+    // taken form dark mode while logged in
+    --ring-font-family: 'Inter', system-ui, Arial, sans-serif;
+    --ring-line-color: #475159;
+    --ring-borders-color: #406380;
+    --ring-icon-color: #80929d;
+    --ring-icon-secondary-color: #80929d;
+    --ring-border-disabled-color: #475159;
+    --ring-border-hover-color: #70b1e6;
+    --ring-icon-error-color: #c22731;
+    --ring-icon-warning-color: #cc8b00;
+    --ring-icon-success-color: #1c8c32;
+    --ring-hint-color: #80929d;
+    --ring-link-color: #70b1e6;
+    --ring-error-color: #db5860;
+    --ring-warning-color: #eda200;
+    --ring-success-color: #59a869;
+    --ring-text-color: #bbb;
+    --ring-heading-color: #fff;
+    --ring-secondary-color: #80929d;
+    --ring-disabled-color: #80929d;
+    --ring-content-background-color: #23272b;
+    --ring-popup-background-color: #111314;
+    --ring-sidebar-background-color: #28343d;
+    --ring-selected-background-color: #062640;
+    --ring-hover-background-color: #0b1a26;
+    --ring-message-background-color: var(--ring-popup-background-color);
+    --ring-navigation-background-color: #111314;
+    --ring-tag-background-color: #3e4d59;
+    --ring-removed-background-color: #8f5247;
+    --ring-warning-background-color: #593d01;
+    --ring-added-background-color: #365947;
+    --ring-code-background-color: #2b2b2b;
+    --ring-code-color: #a9b7c6;
+    --ring-code-meta-color: #bbb529;
+    --ring-code-keyword-color: #cc7832;
+    --ring-code-tag-background-color: #2b2b2b;
+    --ring-code-tag-color: #e8BF6a;
+    --ring-code-tag-font-weight: normal;
+    --ring-code-field-color: #9876aa;
+    --ring-code-attribute-color: #bababa;
+    --ring-code-number-color: #6897bb;
+    --ring-code-string-color: #6a8759;
+    --ring-code-addition-color: #447152;
+    --ring-code-deletion-color: #656e76;
+    // below this point may be unnecessary. or maybe not. i think i'm missing some text/font stuff but i tlooks good enough
+    --ring-button-primary-background-color: #1a98ff;
+    --ring-button-primary-border-color: #0062b2;
+    --ring-button-danger-active-color: #ffe7e8;
+    --ring-button-danger-hover-color: var(--ring-icon-error-color);
+    --ring-button-loader-background: #33a3ff;
+    --ring-button-dark-icon-color: #80929d;
+    --ring-button-dark-border-disabled-color: #333;
+    --ring-button-dark-icon-disabled-color: var(--ring-dark-disabled-color);
+    --ring-button-dark-danger-active-color: #26080a;
+    --ring-button-dark-danger-hover-color: var(--ring-error-color);
+    --ring-button-dark-active-color: #062640;
+    --ring-button-dark-loader-background: #002039;
+
+    --ring-dark-line-color: #475159;
+    --ring-dark-borders-color: #406380;
+    --ring-icon-disabled-color: #bbb;
+    --ring-dark-border-hover-color: #70b1e6;
+    --ring-icon-hover-color: var(--ring-link-hover-color);
+    --ring-main-color: #008eff;
+    --ring-main-hover-color: #007ee5;
+    --ring-pale-control-color: #cfdbe5;
+    --ring-search-color: #669ecc;
