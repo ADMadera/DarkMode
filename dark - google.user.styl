@@ -42,6 +42,7 @@ if dark-load
 
     .Bgzgmd a
     .vwtvsf
+    .qJfqwb
       color: #ddd
 
     // svg "fill"
@@ -129,25 +130,31 @@ if dark-load
     display: none !important
 
   /* width - move "Sign In" to the left */
-  #gb
+  #gb // the parent element that contains the Sign In button and the menu button
     float: left
     top: 40px
     padding-left: 0
+  #gb, #gb > *, #gb > * > * // prevent background from blocking out the searchbox's border
+    background-color: transparent !important
 
-  .gb_2c.gb_Xa.gb_1c
+  .gb_2c.gb_Xa.gb_1c // not finding this selector(or any of the classes) anymore 2021-02-17
     padding-left: 0
     padding-right: 0
 
-  .gb_4c + div
+  .gb_4c + div // not finding this class anymore 2021-02-17
     right: unset
     left: 0px
-  // make the background invisible so that it doesnt obscure the searchbox
-  .gb_3c
-  .gb_4c
+  // make the background (of searchbox-related elements) invisible so that it doesnt obscure the searchbox
+  .gb_3c // cant find this class anymore 2021-02-17
+  .gb_4c // cant find this class anymore 2021-02-17
+  div.SDkEP
+  div.SDkEP > *
     background-color: transparent !important
 
-  /* actual dark mode */
-  html *:not(a),
+  /* actual dark mode
+    .fWhgmd is used for images/video thumbnails (maybe)
+  */
+  html div:not(.fWhgmd):not(.SDkEP),
   .GHDvEf,
   .GHDvEf:hover,
   .GHDvEf.selected,
@@ -183,8 +190,7 @@ if dark-load
   .aCOpRe span, // text from site
   .s
     color: #4caf50 !important
-
-  .aCOpRe span em // seems to be the searched-for-word(s) within the blurb
+  .aCOpRe span em // seems to be word searched for within the blurb
     color: #ddd !important
 
   .gLFyf,
@@ -274,3 +280,7 @@ if dark-load
   .hdtb-tl.hdtb-tl-sel,
   .hdtb-tl.hdtb-tl-sel:hover
     color: #333 !important
+
+@-moz-document url-prefix("https://hangouts.google.com/")
+  .Cl
+    width: 350px !important
