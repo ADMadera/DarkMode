@@ -112,7 +112,7 @@ if dark-load
     table td
       border-color: #fff !important
 
-@-moz-document regexp("https://www.google.com/(?!maps|flights|search.*?&tbm=fin|recaptcha).*$")
+@-moz-document regexp("https://www.google.com/(?!maps|flights|search.*?&tbm=fin|recaptcha|search.*jobs).*$")
   // search-blue is the blue from the magnifying glass in the search text box
   search-blue = #4285f4
 
@@ -124,6 +124,9 @@ if dark-load
   #appbar,
   .rhscol
     min-width: auto !important
+  // right-side box with "Pease also search for"
+  #rhs
+    display: none
 
   // usesless(?) element that seems to just contain an obnoxiously wide g-img(???) tag
   #easter-egg
@@ -140,6 +143,9 @@ if dark-load
   .gb_2c.gb_Xa.gb_1c // not finding this selector(or any of the classes) anymore 2021-02-17
     padding-left: 0
     padding-right: 0
+
+  .wM6W7d
+    color: inherit !important
 
   .gb_4c + div // not finding this class anymore 2021-02-17
     right: unset
@@ -190,7 +196,8 @@ if dark-load
   .aCOpRe span, // text from site
   .s
     color: #4caf50 !important
-  .aCOpRe span em // seems to be word searched for within the blurb
+
+  .aCOpRe span em // seems to be the searched-for-word(s) within the blurb
     color: #ddd !important
 
   .gLFyf,
